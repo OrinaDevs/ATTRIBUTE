@@ -1,0 +1,8 @@
+<h1>{{ service.name }}</h1>
+<p>{{ service.description | safe}}</p>
+{% if service.has_fixed_price %}
+    <p>Price: KES {{ service.fixed_price }}</p>
+{% else %}
+    <p>This service requires a custom quotation</p>
+    <a href="{% url 'request_quotation' service.id %}">Request Quotation</a>
+{% endif %}

@@ -1,0 +1,15 @@
+<h1>Our Services</h1>
+<ul>
+    {% for service in services %}
+    <li>
+        <a href="{% url 'service_detail' service.pk %}">{{service.name}}</a>
+        {% if service.has_fixed_price %}
+            <br>
+            -KES {{ service.fixed_price }}
+        {% else %}
+        <br>
+            - Request a quotation
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

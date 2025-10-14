@@ -1,0 +1,18 @@
+<h2>{{ client.name }}</h2>
+<p>Email: {{ client.email }}</p>
+<p>Phone: {{ client.phone }}</p>
+<p>Address: {{ client.address }}</p>
+
+<h3>Services</h3>
+<ul>
+    {% for cs in services %}
+        <li>
+            {{ cs.service.name }} - Satatus: {{ cs.status }}
+            {% if cs.hindrance %}
+                <br><small>Hindrance: {{ cs.hindrance }}</small>
+            {% endif %}
+        </li>
+    {% empty %}
+        <p>No services assigned yet</p>
+    {% endfor %}
+</ul>

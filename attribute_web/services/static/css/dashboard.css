@@ -1,0 +1,40 @@
+/* General layout */
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    min-height: 100vh;
+    background: #343a40;
+}
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Dashboard & Services cards */
+.service-card,
+.card {
+    border-radius: 0.75rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+}
+
+.service-icon {
+    filter: grayscale(20%);
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}

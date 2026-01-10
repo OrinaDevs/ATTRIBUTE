@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from .forms import CustomUserCreationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def register(request):
@@ -8,6 +9,8 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            # IMPORTANT: specify backend manually
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, user) #Auto Login after Registration
             return redirect('index') #Redirects to home page
     else:
@@ -30,3 +33,5 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('index')
+
+

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Logout | Attribute Survey{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+    <h3>Are you sure you want to logout?</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger me-2">Logout</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

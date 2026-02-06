@@ -22,7 +22,7 @@ urlpatterns = [
     path('services/', include('services.urls')),
     path('quotations', include('quotations.urls')),
     path('clients/', include('clients.urls')),
-    path('users/', include('accounts.urls')),
+    #path('users/', include('accounts.urls')),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
 ]

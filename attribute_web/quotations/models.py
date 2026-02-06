@@ -1,11 +1,18 @@
 from django.db import models
 from services.models import Service
 from clients.models import Client
+from django.conf import settings
 
 # Create your models here.
 class QuotationRequest(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='quotations',
+        null=True,
+        blank=True
+    )
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True, blank=True)
     client_name = models.CharField(max_length=200)
     client_email = models.EmailField()
     client_phone = models.CharField(max_length=20, blank=True, null=True)

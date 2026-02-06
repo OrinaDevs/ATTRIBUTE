@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+
+{% block title %}Login | Attribute Land Survey{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <div class="col-md-5 col-lg-4">
+        <div class="card shadow-sm border-0 p-4 service-card">
+
+          <h4 class="fw-bold text-center mb-4">
+            Sign in to Attribute
+          </h4>
+
+          <form method="post">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            <div class="mb-3">
+              {{ form.login.label_tag }}
+              {{ form.login }}
+            </div>
+
+            <div class="mb-3">
+              {{ form.password.label_tag }}
+              {{ form.password }}
+            </div>
+
+            <button class="btn btn-primary w-100 fw-semibold">
+              Login
+            </button>
+          </form>
+
+          <div class="text-center text-muted my-3">
+            — OR —
+          </div>
+
+          <a href="{% provider_login_url 'google' %}"
+             class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
+            <i class="bi bi-google"></i>
+            Continue with Google
+          </a>
+
+          <div class="text-center mt-3">
+            <small class="text-muted">
+              Don’t have an account?
+              <a href="{% url 'account_signup' %}" class="fw-semibold text-decoration-none">
+                Register
+              </a>
+            </small>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
+

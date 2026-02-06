@@ -1,209 +1,137 @@
+{% extends "base.html" %}
 {% load static %}
 {% load socialaccount %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home | Attribute Land Survey</title>
+{% block title %}
+Home | Attribute Land Survey
+{% endblock %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  </head>
-  <body>
+{% block content %}
 
-    <!-- ===== Navbar ===== -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">Attribute Land Survey</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto me-3">
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'index' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'service_list' %}">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-
-          <!-- Login / Signup Buttons -->
-          <div class="d-flex">
-            <a href="{% url 'account_login' %}" class="btn btn-outline-primary me-2">Login</a>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary me-2">Register</a>
-
-            <!-- Google Login -->
-            <button onclick="window.location.href='{% provider_login_url 'google' %}'" 
-                    class="btn btn-danger">
-              <i class="bi bi-google"></i> Sign in with Google
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- ===== Hero Carousel ===== -->
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
+<!-- ===== Hero Carousel ===== -->
+<div id="heroCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-      </div>
-
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{% static 'images/surv1.jpg' %}" class="d-block w-100" alt="Slide 1">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First Slide Label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/surv2.jpg' %}" class="d-block w-100" alt="Slide 2">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second Slide Label</h5>
-            <p>More placeholder content for the second slide.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/surv3.jpg' %}" class="d-block w-100" alt="Slide 3">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third Slide Label</h5>
-            <p>And some more placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
     </div>
 
-    <!-- ===== About Section ===== -->
-    <section class="py-5" id="about">
-      <div class="container">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/surv1.jpg' %}" class="d-block w-100" alt="Surveying">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Precision Land Surveying</h5>
+                <p>Reliable measurements you can trust.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{% static 'images/surv2.jpg' %}" class="d-block w-100" alt="Mapping">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Modern Mapping Solutions</h5>
+                <p>Technology-driven land services.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{% static 'images/surv3.jpg' %}" class="d-block w-100" alt="Boundary Survey">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Clear Boundaries</h5>
+                <p>Accuracy that protects your property.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- ===== About Section ===== -->
+<section class="py-5" id="about">
+    <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6 mb-4 mb-md-0">
-            <img src="{% static 'images/oran2.jpg' %}" alt="About" class="img-fluid rounded shadow-sm">
-          </div>
-          <div class="col-md-6">
-            <h2 class="fw-bold mb-3">ABOUT ATTRIBUTE</h2>
-            <p class="text-muted">
-              ORAN SOFTWARES is a forward-thinking technology firm dedicated to building innovative, reliable, and efficient software solutions.
-            </p>
-            <p class="text-muted">
-              Our mission is to transform ideas into scalable and sustainable technology products that deliver real-world impact.
-            </p>
-            <a href="#services" class="btn btn-primary mt-3">Explore Our Services</a>
-          </div>
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="{% static 'images/oran2.jpg' %}" class="img-fluid rounded shadow-sm" alt="About Attribute">
+            </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">ABOUT ATTRIBUTE</h2>
+                <p class="text-muted">
+                    Attribute Land Survey is dedicated to delivering accurate, professional,
+                    and reliable land and property surveying solutions.
+                </p>
+                <p class="text-muted">
+                    We combine modern technology with deep industry expertise to protect
+                    land ownership and support sustainable development.
+                </p>
+                <a href="#services" class="btn btn-primary mt-3">
+                    Explore Our Services
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ===== Services Section ===== -->
-    <section class="py-5 bg-light" id="services">
-      <div class="container">
+<!-- ===== Services Section ===== -->
+<section class="py-5 bg-light" id="services">
+    <div class="container">
         <div class="text-center mb-5">
-          <h2 class="fw-bold">Our Services</h2>
-          <p class="text-muted">We provide professional solutions to all your land related matters.</p>
+            <h2 class="fw-bold">Our Services</h2>
+            <p class="text-muted">
+                We provide professional solutions to all your land-related matters.
+            </p>
         </div>
+
         <div class="row g-4">
-          <!-- Example Service Item -->
-          <div class="col-md-4">
-            <div class="card shadow-sm h-100 border-0 text-center p-4 service-card">
-              <img src="{% static 'icons/consulting.png' %}" class="mb-3" width="60" alt="Consulting">
-              <h5 class="fw-bold">Consulting</h5>
-              <p class="text-muted">Expert advice in all land-related matters.</p>
+            <div class="col-md-4">
+                <div class="card service-card h-100 shadow-sm border-0 text-center p-4">
+                    <img src="{% static 'icons/consulting.png' %}" width="60" class="mb-3" alt="Consulting">
+                    <h5 class="fw-bold">Consulting</h5>
+                    <p class="text-muted">Expert advice on land and property matters.</p>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm h-100 border-0 text-center p-4 service-card">
-              <img src="{% static 'icons/web-development.png' %}" class="mb-3" width="60" alt="Land Transfer">
-              <h5 class="fw-bold">Land Transfer</h5>
-              <p class="text-muted">Seamless land transfer with trust and clarity.</p>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100 shadow-sm border-0 text-center p-4">
+                    <img src="{% static 'icons/web-development.png' %}" width="60" class="mb-3" alt="Land Transfer">
+                    <h5 class="fw-bold">Land Transfer</h5>
+                    <p class="text-muted">Secure and seamless land ownership transfer.</p>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm h-100 border-0 text-center p-4 service-card">
-              <img src="{% static 'icons/digital-marketing.png' %}" class="mb-3" width="60" alt="Land Succession">
-              <h5 class="fw-bold">Land Succession</h5>
-              <p class="text-muted">Guiding families through smooth and secure land succession.</p>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100 shadow-sm border-0 text-center p-4">
+                    <img src="{% static 'icons/digital-marketing.png' %}" width="60" class="mb-3" alt="Land Succession">
+                    <h5 class="fw-bold">Land Succession</h5>
+                    <p class="text-muted">Clear succession planning and documentation.</p>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card shadow-sm h-100 border-0 text-center p-4 service-card">
-              <img src="{% static 'icons/digital-marketing.png' %}" class="mb-3" width="60" alt="Land Succession">
-              <h5 class="fw-bold">Land Subdivision</h5>
-              <p class="text-muted">Precision Subdivision for Tomorrow’s Developments.</p>
+
+            <div class="col-md-4">
+                <div class="card service-card h-100 shadow-sm border-0 text-center p-4">
+                    <img src="{% static 'icons/digital-marketing.png' %}" width="60" class="mb-3" alt="Subdivision">
+                    <h5 class="fw-bold">Land Subdivision</h5>
+                    <p class="text-muted">Precision subdivision for future developments.</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ===== Footer Section ===== -->
-    <footer class="bg-light text-dark pt-5 pb-4 border-top" id="contact">
-      <div class="container text-center text-md-start">
-        <div class="row">
-          <div class="col-md-3 mb-4">
-            <h5 class="fw-bold mb-3">Attribute Land Survey</h5>
-            <p>Mapping Tomorrow, Measuring Today.</p>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6 class="fw-bold mb-3">Quick Links</h6>
-            <p><a href="{% url 'index' %}" class="text-reset text-decoration-none">Home</a></p>
-            <p><a href="#about" class="text-reset text-decoration-none">About</a></p>
-            <p><a href="#services" class="text-reset text-decoration-none">Services</a></p>
-            <p><a href="#contact" class="text-reset text-decoration-none">Contact</a></p>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6 class="fw-bold mb-3">Services</h6>
-            <p>Land Search</p>
-            <p>Land Transfer</p>
-            <p>Land Succession</p>
-            <p>Land Subdivision</p>
-          </div>
-          <div class="col-md-3 mb-4">
-            <h6 class="fw-bold mb-3">Contact</h6>
-            <p>Kisii, Kenya</p>
-            <p>info@attribute.com</p>
-            <p>+254 722 000 000</p>
-          </div>
-        </div>
-      </div>
-      <div class="text-center p-3 border-top mt-4">
-        © 2025 Attribute Land Survey. All Rights Reserved.
-      </div>
-    </footer>
+{% endblock %}
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <style>
-      .service-card {
+{% block extra_css %}
+<style>
+    .service-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         border-radius: 1rem;
-      }
-      .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
-      }
-    </style>
-  </body>
-</html>
+    }
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    }
+</style>
+{% endblock %}
